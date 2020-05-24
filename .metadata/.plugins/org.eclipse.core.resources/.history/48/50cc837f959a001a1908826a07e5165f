@@ -1,0 +1,57 @@
+package game_2048;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.util.Random;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class fz_nums {
+	JLabel Jfz[][] = new JLabel[4][4];
+	int nums[][] = new int[4][4];
+	Random r = new Random();
+	Color fz_back_Color = new Color(214, 205, 196);
+	Color font_Color = new Color(238, 228, 218);
+	public void change(int x,int y) {
+		this.nums[x][y] = (1+r.nextInt(2))*2;
+		//System.out.println(this.nums[x][y]);
+	}
+	
+	//用随机数生成一个空白区域坐标
+	public void kb() {
+		int x = r.nextInt(4);
+		int y = r.nextInt(4);
+		if(nums[x][y] != 0) {
+			kb();
+		}
+		else {
+			this.change(x,y);
+		}
+	}
+	public void fuzhi() {
+		for(int i = 0;i<4;++i) {
+			for(int j = 0;j<4;++j) {
+				if(this.nums[i][j] != 0) {
+					Jfz[i][j].setText(String.valueOf(this.nums[i][j]));
+					
+				}
+			}
+		}
+	}
+	public void csh() {
+		for(int i = 0;i<4;++i) {
+			for(int j = 0;j<4;++j) {
+				this.Jfz[i][j] = new JLabel("",JLabel.CENTER);
+				this.Jfz[i][j].setBackground(fz_back_Color);
+				this.Jfz[i][j].setOpaque(true);
+				this.Jfz[i][j].setFont(new Font("楷体",1,35));
+				this.jfz[i][j].setForeground(font_Color);
+				//Jfz[i][j].setLayout(new BorderLayout());
+				//Jfz[i][j].setText(text);
+			}
+		}
+	}
+	
+}

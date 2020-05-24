@@ -1,0 +1,63 @@
+package game_2048;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.Vector;
+
+public class Game_Start {
+
+	public static void main(String[] args) {
+		MyFrame test = new MyFrame();
+		//初始化面板
+		test.loadFrame();
+		//System.out.println(123);
+		test.addKeyListener(new KeyListener() {
+			//按下方向键
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+					
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				//System.out.println(e.getKeyCode());
+				if(e.getKeyCode() == KeyEvent.VK_UP) {
+					for(int y = 0;y<4;++y) {
+						Vector<Object> temp = new Vector();
+						//System.out.println(temp.size());
+						if(test.fz.nums[0][y]!=0) {
+							temp.add(test.fz.nums[0][y]);
+						}
+						temp.add(123);
+						int a = (int) temp.get(0);
+						System.out.println(a);
+						for(int x = 1;x<4;++x) {
+							if(test.fz.nums[x] == test.fz.nums[x-1]) {
+								if(temp.size()!=0) {
+									//temp.get(temp.size()-1) += test.fz.nums[x];
+								}
+								else {
+									temp.add(test.fz.nums[x]);
+								}
+							}
+							else {
+								temp.add(test.fz.nums[x]);
+							}
+						}
+					}
+				}
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				;
+			}
+		});
+		
+	}
+
+}

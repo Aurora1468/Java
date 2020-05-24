@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ui.Test&apos; to &apos;Test1&apos;&#x0D;&#x0A;- Original project: &apos;UDP_UI&apos;&#x0D;&#x0A;- Original element: &apos;ui.Test&apos;&#x0D;&#x0A;- Renamed element: &apos;ui.Test1&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Test&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;ui{Test.java[Test" matchStrategy="1" name="Test1" qualified="false" references="true" similarDeclarations="false" stamp="1589370151474" textual="false" version="1.0"/>
+</session>

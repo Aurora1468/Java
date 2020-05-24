@@ -1,0 +1,26 @@
+package game_2048;
+
+import java.util.Random;
+
+public class fz_nums {
+	int nums[][] = new int[4][4];
+	Random r = new Random();
+	
+	public void change(int x,int y) {
+		this.nums[x][y] = r.nextInt(2)*2;
+		System.out.println(this.nums[x][y]);
+	}
+	
+	//用随机数生成一个空白区域坐标
+	public void kb() {
+		int x = r.nextInt(4);
+		int y = r.nextInt(4);
+		if(nums[x][y] != 0) {
+			kb();
+		}
+		else {
+			this.change(x,y);
+		}
+	}
+	
+}

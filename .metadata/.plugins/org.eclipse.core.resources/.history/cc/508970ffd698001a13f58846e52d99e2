@@ -1,0 +1,68 @@
+package mysql;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Mysql {
+
+	public static boolean cx(String AA) throws SQLException {
+		// TODO Auto-generated method stub
+		String url = "jdbc:mysql://47.244.168.52:3306/java";
+		String user = "java";
+		String pword = "xialei";
+		Connection con = null;
+		Statement st = null;
+		boolean ret = true;
+		
+		try {
+			//1.加载驱动
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			//2.创建连接
+			con = DriverManager.getConnection(url,user,pword);
+			//3.创建statement对象
+			st = con.createStatement();
+			String sql = "select 1 from table where username = 'xialei'";
+			//4.使用 Statement 对象执行 SQL 语句
+			ResultSet resultSet = st.executeQuery(sql);
+			//5.获得结果集对结果集进行处理
+			//if(resultSet.getString("username").equals("") == false) {
+				System.out.println(resultSet.getString("username"));
+			//}
+		
+		} catch (ClassNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (SQLException e) {
+		
+			e.printStackTrace();
+		} finally {
+			//6.关闭连接，释放资源
+			try {
+				if(st !=null) {
+					st.close();
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				if(con !=null) {
+					con.close();
+				}
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		return ret;
+	}
+
+}

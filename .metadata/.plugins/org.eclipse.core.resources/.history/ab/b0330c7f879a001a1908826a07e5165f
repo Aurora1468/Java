@@ -1,0 +1,10 @@
+package game_2048;
+
+public class nums {
+	int nums[][] = new int[4][4];
+	
+	public void change() {
+		
+	}
+	
+}

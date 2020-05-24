@@ -1,0 +1,8 @@
+package game_2048;
+
+public class fz_nums {
+	int nums[][] = new int[4][4];
+	
+	
+	
+}
